@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: frankenmovies
+    schema: public
+    tables:
+      - name: tracks_s3
+        identifier: frankenmovies_s3
+      - name: tracks_kinesis
+        identifier: frankenmovies_kinesis

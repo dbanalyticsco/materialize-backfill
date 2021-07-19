@@ -1,0 +1,7 @@
+venv/
+*.crt
+*.key
+setup.sql
+target/
+logs/
+dbt_modules/
