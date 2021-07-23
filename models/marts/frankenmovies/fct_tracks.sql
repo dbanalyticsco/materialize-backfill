@@ -1,5 +1,3 @@
-{{ config(materialized='table') }}
-
 -- with unioned as (
 
 --     select *, 's3' as source from {{ ref('stg_frankenmovies__tracks_s3') }}
