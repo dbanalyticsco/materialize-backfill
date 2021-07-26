@@ -4,7 +4,7 @@
 
 The purpose of this repository is to demonstrate how a streaming source in Materialize can be backfilled with data from S3. 
 
-This is necessary because streaming sources like [Amazon Kinesis](https://aws.amazon.com/kinesis/) only stores data for a limited period of time. For example, the default retention period for Kinesis is 24 hours. If you'd like to include data prior to the retention period in your views, it requires pulling from a source that stores the historic data, such as S3. 
+This is necessary because streaming sources like [Amazon Kinesis](https://aws.amazon.com/kinesis/) only store data for a limited period of time. For example, the default retention period for Kinesis is 24 hours. If you'd like to include data prior to the retention period in your views, it requires pulling from a source that stores the historic data, such as S3. 
 
 In this example repository, we have set up a dbt project that consolidates S3 and Kinesis data into a single materialized view of page view events from Segment's event tracking functionality. 
 
@@ -51,7 +51,7 @@ You can find the two staging models in this repo on the below links:
 
 ### 5. Union your data
 
-Now that we have our dbt source and staging models created, we can create the final model that unions are streaming and historic data together. 
+Now that we have our dbt source and staging models created, we can create the final model that unions our streaming and historic data together. 
 
 We can do the unioning one of two ways:
 1. Write the SQL ourselves
@@ -77,11 +77,11 @@ select *
 from unioned
 ```
 
-In this query, you can see that we are unioning the two table together, but only selecting records from the historic S3 data where they occur before the beginning of our streaming Kinesis data. This way, we filter out events that are duplicated across both sources and have high-quality output data. 
+In this query, you can see that we are unioning the two tables together, but only selecting records from the historic S3 data where they occur before the beginning of our streaming Kinesis data. This way, we filter out events that are duplicated across both sources and have high-quality output data. 
 
 We are able to use a `select *` in the query only because we set up the two staging models to have the exact same columns in the exact same order.
 
-This is unioning approach is simple enough if we don't have a particularly large number of columns in the unioned data and the two sources have most of the columns in common. When this is not the case and managing the staging models and union statement might therefore become more cumbersone, a dbt macro might be better.
+This unioning approach is simple enough if we don't have a particularly large number of columns in the unioned data and the two sources have most of the columns in common. When this is not the case and managing the staging models and union statement might be more cumbersone, a dbt macro might be better.
 
 #### Using a dbt macro
 
