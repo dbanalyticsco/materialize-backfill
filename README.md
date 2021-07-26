@@ -46,5 +46,5 @@ You can find the source in this repo at [`/models/staging/frankenmovies/src_fran
 We should then create staging models as a point of abstraction for the dbt sources. Staging models allow you to clean up data (renaming, casting, etc) in one place so that all data used downstream in the dbt project is clean.
 
 You can find the two staging models in this repo on the below links:
-* S3: [`/models/staging/frankenmovies/stg_frankenmovies__tracks_S3.sql`]()
-* Kinesis: [`/models/staging/frankenmovies/stg_frankenmovies__tracks_kinesis.sql`]()
+* S3: [`/models/staging/frankenmovies/stg_frankenmovies__tracks_S3.sql`](/models/staging/frankenmovies/stg_frankenmovies__tracks_S3.sql)
+* Kinesis: [`/models/staging/frankenmovies/stg_frankenmovies__tracks_kinesis.sql`](/models/staging/frankenmovies/stg_frankenmovies__tracks_kinesis.sql)
