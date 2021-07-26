@@ -39,4 +39,4 @@ FORMAT TEXT;
 
 In order to use the Materialize sources in dbt, we should create a [dbt source](https://docs.getdbt.com/docs/building-a-dbt-project/using-sources) for the two tables created in the prior steps.
 
-You can find the source in this repo at [`/models/stating/frankenmovies/src_frankenmovies.yml`](/models/stating/frankenmovies/src_frankenmovies.yml).
+You can find the source in this repo at [`/models/staging/frankenmovies/src_frankenmovies.yml`](/models/staging/frankenmovies/src_frankenmovies.yml).
